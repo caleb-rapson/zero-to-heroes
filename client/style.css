@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Caveat:wght@500;700&family=Frijole&family=Luckiest+Guy&family=Oswald:wght@300;500&family=Permanent+Marker&family=Staatliches&display=swap');
+
+:root {
+  --type-bangers: 'Bangers';
+  --type-caveat: 'Caveat';
+  --type-frijole: 'Frijole';
+  --type-luckiest-guy: 'Luckiest Guy';
+  --type-oswald: 'Oswald';
+  --type-permanent-marker: 'Permanent Marker';
+  --type-staatliches: 'Staatliches';
+}
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  font-weight: 100;
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  color: yellow;
+  height: 100%;
+  background-color: black;
+  background-image: url(https://img.freepik.com/free-photo/fire-forest-flames-generative-ai_169016-29510.jpg);
+}
+
+h1 {
+  font-weight: 100;
+  font-family: var(--type-permanent-marker);
+  font-kerning: auto;
+  font-size: 5em;
+}
