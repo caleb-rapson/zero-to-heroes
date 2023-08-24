@@ -1,12 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>React FTW!</title>
-  </head>
-  <body>
-    <div id="app"></div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Superhero Top Trumps</title>
+</head>
+<body>
+  <header>
+    <h1>Zero$ for Heroe$</h1>
+  </header>
 
-    <script src="./client/index.tsx" type="module"></script>
-  </body>
+  
+  <main>
+    <div class="game-container">
+      <div class="card" id="player1-card">
+        <!-- Display superhero info for player 1 -->
+      </div>
+      <div class="card" id="player2-card">
+        <!-- Display superhero info for player 2 -->
+      </div>
+    </div>
+    
+    <div class="bet-container">
+      <input type="number" placeholder="Place your bet" id="bet-amount">
+      <input type="text" placeholder="Credit Card Number" id="credit-card">
+      <button id="start-button">Start</button>
+     
+
+    </div>
+
+    <div class="timer">
+      Time: <span id="timer">30</span>
+    </div>
+    
+    <div class="winner">
+      Winner: <span id="winner"></span>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Zero$ to Heroe$ Game App</p>
+  </footer>
+  
+  <script src="main.js"></script>
+</body>
 </html>
