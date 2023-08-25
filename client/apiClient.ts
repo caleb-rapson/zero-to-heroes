@@ -10,7 +10,7 @@ const serverURL = '/api/v1'
 // // ***   ***   ***
 
 export async function getRandomSuperhero() {
-  const response = await request.get('/api/v1/superhero')
+  const response = await request.get('/api/v1/hero')
 
   return response.body
 }

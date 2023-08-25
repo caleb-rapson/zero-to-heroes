@@ -1,31 +1,22 @@
-import React from "react";
+import { Superhero } from '../../models/Superhero.ts'
 
-interface Superhero {
-    id: number;
-    name: string;
-    intelligence: number;
-    strength: number; 
-    speed: number;
-    durability: number;
-    power: number;
-    combat: number
-}
 interface HeroProps {
-    superhero: Superhero;
-  }
-  
-  const Hero = ({ superhero }: HeroProps) => {
-    return (
-      <div className="card">
-        <h2>{superhero.name}</h2>
-        <p>Intelligence: {superhero.intelligence}</p>
-        <p>Strength: {superhero.strength}</p>
-        <p>Speed: {superhero.speed}</p>
-        <p>Durability: {superhero.durability}</p>
-        <p>Power: {superhero.power}</p>
-        <p>Combat: {superhero.combat}</p>
-      </div>
-    );
-  };
-  
-  export default Hero;
+  superhero: Superhero
+}
+
+const Hero = ({ superhero }: HeroProps) => {
+  return (
+    <div className="card">
+      <h2>{superhero.name}</h2>
+      <img src={superhero.image.url} alt={superhero.name} />
+      <p>Intelligence: {superhero.powerstats.intelligence}</p>
+      <p>Strength: {superhero.powerstats.strength}</p>
+      <p>Speed: {superhero.powerstats.speed}</p>
+      <p>Durability: {superhero.powerstats.durability}</p>
+      <p>Power: {superhero.powerstats.power}</p>
+      <p>Combat: {superhero.powerstats.combat}</p>
+    </div>
+  )
+}
+
+export default Hero
