@@ -37,22 +37,32 @@ const Battle = () => {
   // TODO: Compare the chosen attribute of each combatant and determine the winner
 
   return (
-    <div className="battle">
-      <div className="battle-container">
-        <div className="player-card">
+    <>
+      <div className="combatants">
+        <div className="card">
           <h2>Combatant 1</h2>
           {loadingOne ? <p>Loading...</p> : <Hero superhero={superheroOne} />}
         </div>
-        <div className="player-card">
+        <div className="winner">
+          <p>Winner: {winner}</p>
+          <p>Attribute: {attribute}</p>
+          {/* Possibly shift to a component inside Battle */}
+          <div className="bet-container">
+            <input type="number" placeholder="Place your bet" id="bet-amount" />
+            <input
+              type="text"
+              placeholder="Credit Card Number"
+              id="credit-card"
+            />
+            <button id="start-button">Start</button>
+          </div>
+        </div>
+        <div className="card">
           <h2>Combatant 2</h2>
           {loadingTwo ? <p>Loading...</p> : <Hero superhero={superheroTwo} />}
         </div>
       </div>
-      <div className="winner">
-        <p>Winner: {winner}</p>
-        <p>Attribute: {attribute}</p>
-      </div>
-    </div>
+    </>
   )
 }
 
