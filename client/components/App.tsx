@@ -16,17 +16,6 @@ function App() {
         </div>
 
         {/* Possibly shift to a component inside Battle */}
-        <div className="bet-container">
-          <input type="number" placeholder="Place your bet" id="bet-amount" />
-          <input
-            type="text"
-            placeholder="Credit Card Number"
-            id="credit-card"
-          />
-          <button id="start-button">Start</button>
-        </div>
-
-        {/* Possibly shift to a component inside Battle */}
         <div className="timer">
           Time: <span id="timer">30</span>
         </div>
