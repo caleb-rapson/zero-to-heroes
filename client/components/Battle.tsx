@@ -1,39 +1,59 @@
-import React from 'react';
-import Hero from './Hero.tsx';
-interface Superhero {
-    id: number;
-    name: string;
-    intelligence: number;
-    strength: number; 
-    speed: number;
-    durability: number;
-    power: number;
-    combat: number
-}
-interface BattleProps {
-  player1Card: Superhero | null;
-  player2Card: Superhero | null;
-  attribute: keyof Superhero;
-  winner: string;
-}
+import { useEffect, useState } from 'react'
+import Hero from './Hero.tsx'
 
-const Battle = ({ player1Card, player2Card, attribute, winner }: BattleProps) => {
+import { Superhero } from '../../models/Superhero.ts'
+import { getRandomSuperhero } from '../apiClient.ts'
+
+const Battle = () => {
+  const [superheroOne, setSuperheroOne] = useState<Superhero | null>(null)
+  const [superheroTwo, setSuperheroTwo] = useState<Superhero | null>(null)
+  const [loadingOne, setLoadingOne] = useState(true)
+  const [loadingTwo, setLoadingTwo] = useState(true)
+  const [winner, setWinner] = useState('Waiting for bets...')
+  const [attribute, setAttribute] = useState('Waiting for bets...')
+
+  useEffect(() => {
+    const fetchSuperheros = async () => {
+      // Fetch first Superhero
+      let superheroData = await getRandomSuperhero()
+      setSuperheroOne(superheroData)
+      setLoadingOne(false)
+
+      // Fetch second Superhero
+      superheroData = await getRandomSuperhero()
+      setSuperheroTwo(superheroData)
+      setLoadingTwo(false)
+    }
+    try {
+      fetchSuperheros()
+    } catch (err: unknown) {
+      if (err instanceof Error) console.log(err.message)
+      else throw Error("Can't handle this error!")
+    }
+  }, [])
+
+  // TODO: Determine which attribute to compare between combatants
+
+  // TODO: Compare the chosen attribute of each combatant and determine the winner
+
   return (
-    <div className="battle-container">
-      <div className="player-card">
-        <h2>Player 1</h2>
-        {player1Card ? <Hero superhero={player1Card} /> : <p>No card selected</p>}
-      </div>
-      <div className="player-card">
-        <h2>Player 2</h2>
-        {player2Card ? <Hero superhero={player2Card} /> : <p>No card selected</p>}
+    <div className="battle">
+      <div className="battle-container">
+        <div className="player-card">
+          <h2>Combatant 1</h2>
+          {loadingOne ? <p>Loading...</p> : <Hero superhero={superheroOne} />}
+        </div>
+        <div className="player-card">
+          <h2>Combatant 2</h2>
+          {loadingTwo ? <p>Loading...</p> : <Hero superhero={superheroTwo} />}
+        </div>
       </div>
       <div className="winner">
         <p>Winner: {winner}</p>
         <p>Attribute: {attribute}</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Battle;
+export default Battle

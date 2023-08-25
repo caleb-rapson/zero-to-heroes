@@ -1,39 +1,45 @@
 import { useState, useEffect } from 'react'
 
 import { getRandomSuperhero } from '../apiClient.ts'
+import Battle from './Battle.tsx'
 
 function App() {
-  // const [welcomeStatement, setWelcomeStatement] = useState('')
-  const [superhero, setSuperhero] = useState(null)
-
-  // useEffect(() => {
-  //   getWelcome()
-  //     .then((res) => {
-  //       setWelcomeStatement(res.statement)
-  //     })
-  //     .catch((err) => {
-  //       console.error(err.message)
-  //     })
-  // })
-
-  useEffect(() => {
-    const fetchSuperhero = async () => {
-      const superheroData = await getRandomSuperhero()
-      // console.log(superheroData)
-      setSuperhero(superheroData)
-    }
-    try {
-      fetchSuperhero()
-    } catch (err: unknown) {
-      if (err instanceof Error) console.log(err.message)
-      else throw Error("Can't handle this error!")
-    }
-  }, [])
-
   return (
     <>
-      {/* <h1>{welcomeStatement}</h1> */}
-      <div>{superhero?.name}</div>
+      <header>
+        <h1>Zero$ for Heroe$</h1>
+      </header>
+
+      <main>
+        <div className="game-container">
+          <Battle />
+        </div>
+
+        {/* Possibly shift to a component inside Battle */}
+        <div className="bet-container">
+          <input type="number" placeholder="Place your bet" id="bet-amount" />
+          <input
+            type="text"
+            placeholder="Credit Card Number"
+            id="credit-card"
+          />
+          <button id="start-button">Start</button>
+        </div>
+
+        {/* Possibly shift to a component inside Battle */}
+        <div className="timer">
+          Time: <span id="timer">30</span>
+        </div>
+
+        {/* Possibly shift to a component inside Battle */}
+        <div className="winner">
+          Winner: <span id="winner"></span>
+        </div>
+      </main>
+
+      <footer>
+        <p>&copy; 2023 Zero$ to Heroe$ Game App</p>
+      </footer>
     </>
   )
 }
