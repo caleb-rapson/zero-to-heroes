@@ -39,8 +39,8 @@ const Battle = () => {
   return (
     <>
       <div className="combatants">
-        <div className="card">
-          <h2>Combatant 1</h2>
+        <div className="">
+          {/* <h2>Combatant 1</h2> */}
           {loadingOne ? <p>Loading...</p> : <Hero superhero={superheroOne} />}
         </div>
         <div className="winner">
@@ -57,8 +57,8 @@ const Battle = () => {
             <button id="start-button">Start</button>
           </div>
         </div>
-        <div className="card">
-          <h2>Combatant 2</h2>
+        <div className="">
+          {/* <h2>Combatant 2</h2> */}
           {loadingTwo ? <p>Loading...</p> : <Hero superhero={superheroTwo} />}
         </div>
       </div>
