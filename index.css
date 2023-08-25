@@ -1,76 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Caveat:wght@500;700&family=Frijole&family=Luckiest+Guy&family=Oswald:wght@300;500&family=Permanent+Marker&family=Staatliches&display=swap');
+
+:root {
+  --type-bangers: 'Bangers';
+  --type-caveat: 'Caveat';
+  --type-frijole: 'Frijole';
+  --type-luckiest-guy: 'Luckiest Guy';
+  --type-oswald: 'Oswald';
+  --type-permanent-marker: 'Permanent Marker';
+  --type-staatliches: 'Staatliches';
+}
+
+body,
+html {
+  height: 100%;
+}
+
 /* styles.css */
-body, h1, h2, p, div, button, input {
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    background-color: black;
-    color: white;
-    font-family: Arial, sans-serif;
-  }
-  
-  header {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 80vh;
-  }
-  
-  .game-container {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
-  }
-  
-  .card {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    width: 250px;
-  }
-  
-  .bet-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  input {
-    padding: 10px;
-    margin: 5px;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-  }
-  
-  button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    outline: none;
-  }
-  
-  .timer, .winner {
-    margin-bottom: 10px;
-    font-size: 18px;
-  }
-  
-  footer {
-    text-align: center;
-    padding: 10px;
-  }
-  
+body,
+h1,
+h2,
+p,
+div,
+button,
+input {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-weight: 100;
+  font-family: var(--type-staatliches);
+  color: rgb(255, 249, 232);
+}
+
+.bg {
+  /* can't get this working for a vignette style opacity */
+  background-color: radial-gradient();
+
+  /* these two control the opaque BG */
+  background-color: rgb(171, 171, 171);
+  background-blend-mode: multiply;
+
+  /* everything else for fiery fullscreen backdrop */
+  height: 100%;
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+
+  /* two options, the vortex win */
+  /* background-image: url('./images/background/2303.w030.n003.624A.p1.624.jpg'); */
+  background-image: url('./images/background/2303.w030.n003.626A.p1.626.jpg');
+}
+
+h1 {
+  font-weight: 100;
+  font-family: var(--type-bangers);
+  font-kerning: auto;
+  font-size: 7em;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
+
+.battle-container {
+}
+
+.game-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.card {
+  min-height: 14em;
+  background-color: #333;
+  color: white;
+  padding: 2em;
+  margin: 1em 5em;
+  border-radius: 0.5em;
+  box-shadow: 0px 5px 40px rgb(76, 68, 187);
+  text-align: center;
+  width: 250px;
+}
+
+.bet-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 1em;
+  margin: 1em;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 1.2em;
+}
+
+button {
+  font-size: 1.2em;
+  padding: 1em 2em;
+  margin: 1em;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+.timer,
+.winner {
+  margin-bottom: 10px;
+  font-size: 3em;
+}
+
+footer {
+  text-align: center;
+}
